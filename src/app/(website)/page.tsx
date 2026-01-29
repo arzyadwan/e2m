@@ -285,8 +285,10 @@ export default async function Home() {
       6. WHY CHOOSE US 
       <WhyChooseUs />
       */}
+      {/*
       <NationalTestimonial />
-      {/* 7. TESTIMONI / SOCIAL PROOF 
+      */}
+      {/* 7. TESTIMONI / SOCIAL PROOF */}
       {testimonials.length > 0 && (
         <section className="py-24 bg-brand-light">
           <div className="container mx-auto px-4">
@@ -312,7 +314,7 @@ export default async function Home() {
           </div>
         </section>
       )}
-      */}
+
       {/* 8. FAQ SECTION */}
       <section className="py-20 bg-white border-t border-gray-100">
         <div className="container mx-auto px-4 max-w-4xl">
