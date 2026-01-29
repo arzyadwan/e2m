@@ -9,6 +9,7 @@ import WhyChooseUs from "@/components/WhyChooseUs";
 import NationalTestimonial from "@/components/NationalTestimonial"; // <--- Import Baru
 import ServiceHero from "@/components/ServiceHero";
 import PortfolioGrid from '@/components/PortfolioGrid';
+import ClientMarquee from "@/components/ClientMarquee";
 
 
 export const revalidate = 60;
@@ -237,18 +238,21 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* 4. KLIEN & SOCIAL PROOF */}
+      <ClientMarquee/>
+
+      {/* 4. KLIEN & SOCIAL PROOF 
       <section className="py-12 border-b border-gray-100 bg-white">
         <div className="container mx-auto px-4">
           <p className="text-center text-sm font-semibold text-gray-400 uppercase tracking-widest mb-8">Trusted by Great Companies</p>
           <div className="flex flex-wrap justify-center gap-8 md:gap-16 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
-            {/* Logo Placeholder - Ganti dengan Image logo klien nanti */}
+          
             {['Gojek', 'Tokopedia', 'Traveloka', 'Bank BCA', 'Pertamina'].map((brand, i) => (
               <span key={i} className="text-xl font-bold text-brand-dark">{brand}</span>
             ))}
           </div>
         </div>
       </section>
+      */}
 
       {/* 5. PORTFOLIO PREVIEW */}
       <section className="py-24 bg-gray-50">
