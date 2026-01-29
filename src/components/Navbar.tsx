@@ -18,9 +18,9 @@ const NAV_ITEMS: NavItem[] = [
     label: 'Services',
     href: '/creative-digital',
     children: [
-      { label: 'Event Organizer', href: '/services/event-organizer' },
-      { label: 'Wedding Organizer', href: '/services/wedding-organizer' },
-      { label: 'Creative & Digital', href: '/services/creative-digital' },
+      { label: 'Event Organizer', href: '/event-organizer' },
+      { label: 'Wedding Organizer', href: '/wedding-organizer' },
+      { label: 'Creative & Digital', href: '/creative-digital' },
     ],
   },
   { label: 'Portfolio', href: '/portfolio' },
