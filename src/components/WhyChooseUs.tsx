@@ -14,7 +14,7 @@ export default function WhyChooseUs() {
             top-16: Memberi ruang di atas agar Image & Text bisa "nongol" keluar.
             z-0: Berada di belakang konten.
         */}
-        <div className="absolute inset-0 top-16 bg-white rounded-3xl shadow-xl z-0" />
+        <div className="absolute inset-0 top-10 bg-white rounded-3xl shadow-xl z-0" />
 
         {/* --- LAYER 2: CONTENT GRID --- */}
         {/* z-10 agar berada di depan white card */}
@@ -76,11 +76,12 @@ export default function WhyChooseUs() {
                 lg:-mt-20 : Menarik text ke ATAS agar keluar dari area putih.
                 relative z-20 : Memastikan text di atas layer background apapun.
              */}
+
              <span className="text-brand-blue font-bold text-lg mb-6 block lg:-mt-24 relative z-20">
                Keunggulan Kami
              </span>
             
-            <h2 className="text-3xl lg:text-4xl font-normal text-brand-dark mb-6 leading-tight mt-4">
+            <h2 className="text-3xl lg:text-4xl font-normal text-brand-dark mb-6 leading-tight mt-8">
               Kenapa Harus <span className="font-bold">Memilih E2M</span> <br className="hidden lg:block"/>
               Sebagai Partner Jasa Creative Media Anda?
             </h2>
