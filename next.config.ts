@@ -52,6 +52,11 @@ const nextConfig: NextConfig = {
         hostname: 'halal.kemenperin.go.id',
         port: '',
       },
+      {
+        protocol: 'https',
+        hostname: 'youtu.be',
+        port: '',
+      },
     ],
   },
   reactCompiler: true,
