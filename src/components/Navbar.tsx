@@ -28,7 +28,6 @@ export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState(false);
   const pathname = usePathname();
 
-  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
@@ -37,14 +36,14 @@ export default function Navbar() {
 
   return (
     <header 
-      className={`fixed w-full z-100 transition-all duration-500 px-6 lg:px-12 ${
+      className={`fixed w-full z-[100] transition-all duration-500 px-6 lg:px-12 ${
         isScrolled ? 'top-4' : 'top-0' 
       }`}
     >
       <nav 
         className={`max-w-7xl mx-auto transition-all duration-500 rounded-full border ${
           isScrolled 
-            ? 'bg-white/80 backdrop-blur-xl border-slate-200 shadow-[0_8px_32px_rgba(0,0,0,0.05)] py-2' 
+            ? 'bg-white/90 backdrop-blur-xl border-blue-100 shadow-[0_8px_32px_rgba(37,99,235,0.1)] py-2' 
             : 'border-transparent py-4'
         }`}
       >
@@ -71,22 +70,26 @@ export default function Navbar() {
                 <Link
                   href={item.href}
                   className={`px-5 py-2 text-[13px] font-black uppercase tracking-[0.15em] transition-all relative group flex items-center gap-1 ${
-                    pathname === item.href ? 'text-blue-600' : 'text-slate-600 hover:text-slate-900'
+                    pathname === item.href ? 'text-blue-600' : 'text-slate-600 hover:text-orange-500'
                   }`}
                 >
                   {item.label}
                   {item.children && (
-                    <svg className={`w-3 h-3 transition-transform duration-300 ${activeDropdown ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className={`w-3 h-3 transition-transform duration-300 ${activeDropdown ? 'rotate-180 text-orange-500' : 'text-blue-600'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M19 9l-7 7-7-7" />
                     </svg>
                   )}
-                  {/* Active Indicator Line */}
+                  
+                  {/* Active Indicator Line - Menggunakan Biru */}
                   {pathname === item.href && (
                     <motion.div layoutId="nav-active" className="absolute bottom-0 left-5 right-5 h-0.5 bg-blue-600 rounded-full" />
                   )}
+                  
+                  {/* Hover Underline - Menggunakan Oranye */}
+                  <span className="absolute bottom-0 left-5 w-0 h-0.5 bg-orange-500 transition-all group-hover:w-10 opacity-50"></span>
                 </Link>
 
-                {/* MEGA DROPDOWN (Simplified) */}
+                {/* DROPDOWN SERVICES */}
                 <AnimatePresence>
                   {item.children && activeDropdown && (
                     <motion.div
@@ -95,15 +98,16 @@ export default function Navbar() {
                       exit={{ opacity: 0, y: 15, scale: 0.95 }}
                       className="absolute left-0 top-full pt-4 w-64"
                     >
-                      <div className="bg-white rounded-[2rem] shadow-2xl border border-slate-100 p-3 overflow-hidden">
+                      <div className="bg-white rounded-[2rem] shadow-2xl border border-blue-50 p-3 overflow-hidden">
                         {item.children.map((child) => (
                           <Link
                             key={child.href}
                             href={child.href}
-                            className="flex items-center justify-between px-5 py-4 text-[12px] font-bold text-slate-500 hover:text-blue-600 hover:bg-blue-50 rounded-2xl transition-all group"
+                            className="flex items-center justify-between px-5 py-4 text-[11px] font-bold text-slate-500 hover:text-white hover:bg-blue-600 rounded-2xl transition-all group"
                           >
                             {child.label}
-                            <div className="w-1.5 h-1.5 rounded-full bg-blue-600 opacity-0 group-hover:opacity-100 transition-opacity" />
+                            {/* Dot Aksen Kuning saat Hover */}
+                            <div className="w-1.5 h-1.5 rounded-full bg-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity" />
                           </Link>
                         ))}
                       </div>
@@ -118,10 +122,10 @@ export default function Navbar() {
           <div className="flex items-center gap-4">
             <Link
               href="/contact"
-              className={`hidden md:flex px-8 py-3 rounded-full text-[11px] font-black uppercase tracking-[0.2em] transition-all ${
+              className={`hidden md:flex px-8 py-3 rounded-full text-[11px] font-black uppercase tracking-[0.2em] transition-all shadow-lg ${
                 isScrolled 
-                  ? 'bg-slate-900 text-white hover:bg-blue-600' 
-                  : 'bg-white text-slate-900 hover:shadow-xl'
+                  ? 'bg-blue-600 text-white hover:bg-orange-500 shadow-blue-200' 
+                  : 'bg-white text-blue-600 hover:text-orange-500 shadow-xl'
               }`}
             >
               Get Started
@@ -130,13 +134,13 @@ export default function Navbar() {
             <button
               onClick={() => setIsMobileOpen(!isMobileOpen)}
               className={`md:hidden p-3 rounded-full transition-colors ${
-                isScrolled ? 'bg-slate-100 text-slate-900' : 'bg-white/20 text-white backdrop-blur-md'
+                isScrolled ? 'bg-blue-50 text-blue-600' : 'bg-white/20 text-white backdrop-blur-md'
               }`}
             >
               <div className="w-6 h-5 relative flex flex-col justify-between">
-                <span className={`h-0.5 w-full bg-current rounded-full transition-all ${isMobileOpen ? 'rotate-45 translate-y-2' : ''}`} />
-                <span className={`h-0.5 w-full bg-current rounded-full transition-all ${isMobileOpen ? 'opacity-0' : ''}`} />
-                <span className={`h-0.5 w-full bg-current rounded-full transition-all ${isMobileOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+                <span className={`h-0.5 w-full bg-current rounded-full transition-all ${isMobileOpen ? 'rotate-45 translate-y-2 text-orange-500' : 'text-blue-600'}`} />
+                <span className={`h-0.5 w-full bg-current rounded-full transition-all ${isMobileOpen ? 'opacity-0' : 'text-blue-600'}`} />
+                <span className={`h-0.5 w-full bg-current rounded-full transition-all ${isMobileOpen ? '-rotate-45 -translate-y-2 text-orange-500' : 'text-blue-600'}`} />
               </div>
             </button>
           </div>
@@ -149,25 +153,25 @@ export default function Navbar() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden border-t border-slate-100 overflow-hidden bg-white rounded-[2rem] mt-2 mx-2"
+              className="md:hidden border-t border-blue-50 overflow-hidden bg-white rounded-[2rem] mt-2 mx-2 shadow-2xl"
             >
               <div className="p-8 space-y-6">
                 {NAV_ITEMS.map((item) => (
                   <div key={item.label} className="space-y-4">
                     <Link
                       href={item.href}
-                      className="text-2xl font-serif text-slate-900 block"
+                      className={`text-2xl font-serif block ${pathname === item.href ? 'text-blue-600' : 'text-slate-900 hover:text-orange-500'}`}
                       onClick={() => setIsMobileOpen(false)}
                     >
                       {item.label}
                     </Link>
                     {item.children && (
-                      <div className="grid grid-cols-1 gap-3 pl-4 border-l-2 border-slate-100">
+                      <div className="grid grid-cols-1 gap-3 pl-4 border-l-2 border-orange-200">
                         {item.children.map((child) => (
                           <Link
                             key={child.href}
                             href={child.href}
-                            className="text-sm font-bold text-slate-500 uppercase tracking-widest"
+                            className="text-sm font-bold text-slate-500 uppercase tracking-widest hover:text-blue-600"
                             onClick={() => setIsMobileOpen(false)}
                           >
                             {child.label}
@@ -179,7 +183,7 @@ export default function Navbar() {
                 ))}
                 <Link
                   href="/contact"
-                  className="block w-full py-5 bg-blue-600 text-white text-center rounded-2xl font-black uppercase tracking-widest"
+                  className="block w-full py-5 bg-blue-600 text-white text-center rounded-2xl font-black uppercase tracking-widest hover:bg-orange-500 transition-colors shadow-xl shadow-blue-100"
                   onClick={() => setIsMobileOpen(false)}
                 >
                   Start a Project

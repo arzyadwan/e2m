@@ -14,8 +14,12 @@
 
   /* Menambah Keyframes dan Animasi */
   --keyframes-marquee: {
-    from { transform: translateX(0%); }
-    to { transform: translateX(-100%); }
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
   };
   --animation-marquee: marquee 25s linear infinite;
 }
@@ -48,4 +52,27 @@
     black 90%,
     transparent
   );
+}
+
+.label {
+  display: block;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #94a3b8;
+  margin-bottom: 0.5rem;
+  margin-left: 0.25rem;
+}
+.input {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  background: #f8fafc;
+  outline: none;
+  border: 1px solid transparent;
+}
+.input:focus {
+  background: white;
+  border-color: #2563eb;
 }
